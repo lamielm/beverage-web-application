@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+
+{% block title %}Beverage Add{% endblock title %}
+
+{% block content %}
+  <h1>Beverage Add</h1>
+  <form method="POST">
+    <div class="mb-3">
+      <label for="id_" class="form-label">Beverage ID:</label>
+      <input type="text" class="form-control" id="id" name="id" placeholder="Beverage ID"
+        {% if errors %}
+          value="{{ request.form['id_']}}"
+        {% endif %}
+      >
+      <div id="id_help_id" class="form-text">ID of New Beverage</div>
+    </div>
+    <div class="mb-3">
+      <label for="name" class="form-label">Beverage Name:</label>
+      <input type="text" class="form-control" id="name_id" name="name" placeholder="Beverage Name"
+      {% if errors %}
+          value="{{ request.form['name']}}"
+      {% endif %}
+      >
+      <div id="name_help_id" class="form-text">Name of New Beverage</div>
+    </div>
+    <div class="mb-3">
+        <label for="pack" class="form-label">Beverage Pack:</label>
+        <input type="text" class="form-control" id="pack_id" name="pack" placeholder="Beverage pack"
+        {% if errors %}
+            value="{{ request.form['pack']}}"
+        {% endif %}
+        >
+        <div id="pack_help_id" class="form-text">New Beverage Pack</div>
+    </div>
+    <div class="mb-3">
+        <label for="price" class="form-label">Beverage Price:</label>
+        <input type="text" class="form-control" id="price_id" name="price" placeholder="Beverage Price"
+        {% if errors %}
+            value="{{ request.form['price']}}"
+        {% endif %}
+        >
+        <div id="price_help_id" class="form-text">Price of New Beverage</div>
+    </div>
+    <div class="mb-3">
+        <label for="active" class="form-label">Beverage Status:</label>
+        <input type="text" class="form-control" id="active_id" name="active" placeholder="Beverage Status"
+        {% if errors %}
+            value="{{ request.form['active']}}"
+        {% endif %}
+        >
+        <div id="active" class="form-text">New Beverage Status</div>
+    </div>    
+
+    <button class="btn btn-success" type="submit">Add</button>
+    <a href="{{url_for('beverage_list_view') }}" class="btn btn-secondary">Cancel</a>
+  </form>
+{% endblock content %}

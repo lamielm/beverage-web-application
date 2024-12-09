@@ -12,21 +12,33 @@ To run this on windows:
 
   Activate your environment if you haven't already.
 
-  $ flask --app main run
+  $ flask --app main run --debug
 
 Then in a browser go to http://127.0.0.1:5000/
 """
 from flask import Flask
 
+# First party imports
+from views.home import (
+    home_view,
+    contact_view,
+)
+
+from views.beverage import (
+    beverage_list_view,
+    beverage_add_view,
+    beverage_edit_view,
+)
 
 app = Flask(__name__)
 
+# Define the secret key for use with cookies and the session
+app.secret_key = b"CIwdcuCtI9PSC--DhkWjk1ACPNzUoy3Vb2avY9k322c"
 
-# @app.route() lets you set the url path that will trigger each view.
-# '/' is the root of the domain. If your website was hosted at example.com
-# then the full url would be https://example.com/
-# If the path was '/do/thing/' then the full url would be https://example.com/do/thing/
-@app.route("/")
-def hello_world():
-    # Return a string that will be the full response the browser gets
-    return "<h1>Hello, World!</h1>"
+
+# Define the routes for the app
+app.add_url_rule("/", view_func=home_view)
+app.add_url_rule("/contact", view_func=contact_view)
+app.add_url_rule("/beverages", view_func=beverage_list_view)
+app.add_url_rule("/beverages/add", view_func=beverage_add_view, methods=["GET", "POST"])
+app.add_url_rule("/beverage/<string:pk>/edit", view_func=beverage_edit_view, methods=["GET", "POST"])
