@@ -108,3 +108,27 @@ def beverage_edit_view(pk):
         beverage=beverage,
         errors=errors,
     )
+
+def beverage_delete_view(pk):
+    """Show page for deleting existing beverage"""
+    errors = []
+
+    beverage = db_session.get(Beverage, pk)
+
+    if not beverage:
+        flash(f"Unknown beverage with ID of {pk}", "danger")
+        return redirect(url_for("beverage_list_view"))
+
+    if request.method == "POST":
+        db_session.delete(beverage)
+        db_session.commit()
+
+        flash("Beverage deleted seccessfully!", "success")
+
+        return redirect(url_for("beverage_list_view"))
+
+    return render_template(
+        "beverage/beverage_delete.html",
+        beverage=beverage,
+        errors=errors,
+    )

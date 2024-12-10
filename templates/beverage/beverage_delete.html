@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block title %}Beverage Delete{% endblock title %}
+
+{% block content %}
+  <h1>Beverage Delete</h1>
+  <form method="POST">
+    <div class="mb-3">
+      <label for="id_" class="form-label">Beverage ID:</label>
+      <input type="text" class="form-control" id="id" name="id" placeholder="Beverage ID" value="{{ beverage.id }}" disabled>
+      <div id="id_help_id" class="form-text">ID of Beverage</div>
+    </div>
+    
+    <div class="mb-3">
+      <label for="name" class="form-label">Beverage Name:</label>
+      <input type="text" class="form-control" id="name_id" name="name" placeholder="Beverage Name" value="{{ beverage.name }}" disabled>
+      <div id="name_help_id" class="form-text">Name of Beverage</div>
+    </div>
+    <div class="mb-3">
+        <label for="pack" class="form-label">Beverage Pack:</label>
+        <input type="text" class="form-control" id="pack_id" name="pack" placeholder="Beverage pack" value="{{ beverage.pack }}" disabled>
+        <div id="pack_help_id" class="form-text">Beverage Pack</div>
+    </div>
+    <div class="mb-3">
+        <label for="price" class="form-label">Beverage Price:</label>
+        <input type="text" class="form-control" id="price_id" name="price" placeholder="Beverage Price" value="{{ beverage.price }}" disabled>
+        <div id="price_help_id" class="form-text">Price of Beverage</div>
+    </div>
+    <div class="mb-3">
+        <label for="active" class="form-label">Beverage Status:</label>
+        <input type="text" class="form-control" id="active_id" name="active" placeholder="Beverage Status" value="{{ beverage.active }}" disabled>
+        <div id="active" class="form-text">Beverage Status</div>
+    </div>    
+
+    <h3> Are you sure you want to delete this Beverage?</h3>
+    <button class="btn btn-danger" type="submit">Delete</button>
+    <a href="{{url_for('beverage_list_view') }}" class="btn btn-secondary">Cancel</a>
+{% endblock content %}

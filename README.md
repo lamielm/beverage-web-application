@@ -99,4 +99,4 @@ I may not have had time to demonstrate checkboxes in the in-class material. Beca
 
 ## Known Problems, Issues, And/Or Errors in the Program
 
-
+Issue exist with Add and Edit where the "active" field is being read as a string instead of as a bool.  It is crashing the program/webpage.
