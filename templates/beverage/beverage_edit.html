@@ -51,16 +51,15 @@
         <div id="price_help_id" class="form-text">Price of New Beverage</div>
     </div>
     <div class="mb-3">
-        <label for="active" class="form-label">Beverage Status:</label>
-        <input type="text" class="form-control" id="active_id" name="active" placeholder="Beverage Status"
-        {% if errors %}
-            value="{{ request.form['active']}}"
-        {% else %}
-            value="{{ beverage.active }}"
-        {% endif %}
-        >
-        <div id="active" class="form-text">Edited Beverage Status</div>
-    </div>    
+      <label class="form-label">Beverage Status:</label>
+          <input type="radio" id="active_true" name="active" value="true" 
+              {% if request.form.get('active') == 'true' %}checked{% endif %}>
+          <label for="active_true">Active</label>
+          <input type="radio" id="active_false" name="active" value="false" 
+              {% if request.form.get('active') == 'false' %}checked{% endif %}>
+          <label for="active_false">Inactive</label>
+      <div id="active_help" class="form-text">Choose the beverage status</div>
+    </div>   
 
     <button class="btn btn-success" type="submit">Add</button>
     <a href="{{url_for('beverage_list_view') }}" class="btn btn-secondary">Cancel</a>

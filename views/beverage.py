@@ -32,10 +32,12 @@ def beverage_add_view():
         name = request.form["name"]
         pack = request.form["pack"]
         price = request.form["price"]
-        active = request.form["active"]
+        active = request.form["active"] == "true"
 
         if not id_:
             errors.append("The ID is required")
+        elif db_session.query(Beverage).filter_by(id=id_).first():
+            errors.append(f"A beverage with the ID {id_} already exists")
         if not name:
             errors.append("The name is required")
         if not pack:
@@ -44,6 +46,8 @@ def beverage_add_view():
             errors.append("The price is required")
         if not active:
             errors.append("The status is required")
+
+        
 
         if not errors:
             # Create the new Beverage
@@ -78,7 +82,7 @@ def beverage_edit_view(pk):
         name = request.form["name"]
         pack = request.form["pack"]
         price = request.form["price"]
-        active = request.form["active"]
+        active = request.form["active"] == "true"
 
         if not name:
             errors.append("The name is required")
