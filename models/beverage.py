@@ -1,5 +1,9 @@
 """Beverage module"""
 
+# Landon Lamie
+# CIS 226
+# 12/11/2024
+
 # Third party imports
 from sqlalchemy import Column
 from sqlalchemy.ext.declarative import declarative_base

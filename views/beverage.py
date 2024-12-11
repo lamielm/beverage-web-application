@@ -1,5 +1,9 @@
 """Beverage Views"""
 
+# Landon Lamie
+# CIS 226
+# 12/11/2024
+
 from flask import flash, render_template, request, redirect, url_for
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
@@ -32,7 +36,7 @@ def beverage_add_view():
         name = request.form["name"]
         pack = request.form["pack"]
         price = request.form["price"]
-        active = request.form["active"] == "true"
+        active = request.form.get("active") == "true"
 
         if not id_:
             errors.append("The ID is required")
@@ -90,7 +94,7 @@ def beverage_edit_view(pk):
             errors.append("The pack is required")
         if not price:
             errors.append("The price is required")
-        if not active:
+        if not request.form.get("active"):
             errors.append("The status is required")
 
         if not errors:

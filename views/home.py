@@ -1,5 +1,9 @@
 """Home and static views"""
 
+# Landon Lamie
+# CIS 226
+# 12/11/2024
+
 # Third-party imports
 from flask import render_template
 

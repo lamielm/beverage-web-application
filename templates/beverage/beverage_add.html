@@ -6,10 +6,10 @@
   <h1>Beverage Add</h1>
   <form method="POST">
     <div class="mb-3">
-      <label for="id_" class="form-label">Beverage ID:</label>
+      <label for="id" class="form-label">Beverage ID:</label>
       <input type="text" class="form-control" id="id" name="id" placeholder="Beverage ID"
         {% if errors %}
-          value="{{ request.form['id_']}}"
+          value="{{ request.form['id']}}"
         {% endif %}
       >
       <div id="id_help_id" class="form-text">ID of New Beverage</div>
@@ -43,15 +43,14 @@
         <div id="price_help_id" class="form-text">Price of New Beverage</div>
     </div>
     <div class="mb-3">
-      <label class="form-label">Beverage Status:</label>
-          <input type="radio" id="active_true" name="active" value="true" 
-              {% if request.form.get('active') == 'true' %}checked{% endif %}>
-          <label for="active_true">Active</label>
-          <input type="radio" id="active_false" name="active" value="false" 
-              {% if request.form.get('active') == 'false' %}checked{% endif %}>
-          <label for="active_false">Inactive</label>
+      <label class="form-label" name="active" value="blank">Beverage Status:</label>
+        <input type="radio" id="active_true" name="active" value="true">
+        <label for="active_true">Active</label>
+        <input type="radio" id="active_false" name="active" value="false">
+        <label for="active_false">Inactive</label>
+      
       <div id="active_help" class="form-text">Choose the beverage status</div>
-    </div>
+    </div> 
 
     <button class="btn btn-success" type="submit">Add</button>
     <a href="{{url_for('beverage_list_view') }}" class="btn btn-secondary">Cancel</a>

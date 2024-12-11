@@ -95,10 +95,8 @@ I may not have had time to demonstrate checkboxes in the in-class material. Beca
 
 ## Outside Resources Used
 
-
+Bootstrap that was used in class
 
 ## Known Problems, Issues, And/Or Errors in the Program
 
-Issue with adding beverage and ID's being duplicate.  If a duplicate ID is entered, it warns
-user, then prompt the add beverage page again.  The issue now lies in the fact that if you 
-enter a unique id after entering a non-unique id, you get stuck in that add beverage page.
+None
