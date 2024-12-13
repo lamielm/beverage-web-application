@@ -1,0 +1,15 @@
+To create a Python virtual environment, run:
+python -m venv .venv
+
+To activate venv:
+. .venv/Scripts/activate
+
+To install pip requirments:
+python -m pip install -r requirements.txt
+    -NOTE: Make sure your venv is activated
+
+To run program:
+    -In bash terminal:
+        -If you are consumer, type flask --app main run
+        -If you are developer, type flask --app main run --debug
+    -In web browser, follow this link -> http://127.0.0.1:5000

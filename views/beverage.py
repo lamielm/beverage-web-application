@@ -1,7 +1,6 @@
 """Beverage Views"""
 
 # Landon Lamie
-# CIS 226
 # 12/11/2024
 
 from flask import flash, render_template, request, redirect, url_for

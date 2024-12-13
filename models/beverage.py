@@ -1,7 +1,6 @@
 """Beverage module"""
 
 # Landon Lamie
-# CIS 226
 # 12/11/2024
 
 # Third party imports
